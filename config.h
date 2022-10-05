@@ -63,13 +63,25 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
+static const char *browser[]  = { "brave", NULL };
+static const char *rofi_run[] = { "rofi", "-show", "drun", NULL };
+static const char *lock[]     = { "slock", NULL};
+
+/*Volume Control
+static const char *mutecmd[] 		= { "amixer", "-q", "set", "Master", "toggle", NULL };
+static const char *volupcmd[] 		= { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
+static const char *voldowncmd[] 	= { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
+static const char *miccmd[] 		= { "amixer", "set", "Capture", "toggle", NULL };*/
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofi_run } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lock } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
