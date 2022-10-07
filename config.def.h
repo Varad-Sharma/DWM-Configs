@@ -74,6 +74,10 @@ static const char *mutecmd[] 		= { "amixer", "-q", "set", "Master", "toggle", NU
 static const char *volupcmd[] 		= { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *voldowncmd[] 	= { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
 
+static const char *voldownkey[]         = "0x1008FF11";
+static const char *mutekey[]            = "0x1008FF12";
+static const char *volupkey[]           = "0x1008FF13";
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
@@ -118,9 +122,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	/*Volume Control*/
-	{ 0,                            0x1008ff13, spawn,         {.v = volupcmd } },
-	{ 0,                            0x1008FF12, spawn,         {.v = mutecmd } },
-	{ 0,                            0x1008ff11, spawn,         {.v = voldowncmd } },
+	{ 0,                            volupkey,   spawn,         {.v = volupcmd } },
+	{ 0,                            mutekey,    spawn,         {.v = mutecmd } },
+	{ 0,                            voldownkey, spawn,         {.v = voldowncmd } },
 };
 
 /* button definitions */
