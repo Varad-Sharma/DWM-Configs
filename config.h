@@ -118,9 +118,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	/*Volume Control*/
-	{ 0,                            0x1008ff13, spawn,         {.v = volupcmd } },
+	{ 0,                            0x1008FF13, spawn,         {.v = volupcmd } },
 	{ 0,                            0x1008FF12, spawn,         {.v = mutecmd } },
-	{ 0,                            0x1008ff11, spawn,         {.v = voldowncmd } },
+	{ 0,                            0x1008FF11, spawn,         {.v = voldowncmd } },
 };
 
 /* button definitions */
