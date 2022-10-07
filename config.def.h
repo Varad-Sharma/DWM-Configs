@@ -66,13 +66,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browser[]  = { "brave", NULL };
 static const char *rofi_run[] = { "rofi", "-show", "drun", NULL };
-static const char *lock[]     = { "slock", NULL};
+static const char *lock[]     = { "slock", NULL };
+static const char *filem[]    = { "pcmanfm", NULL };
 
-/*Volume Control
+/*Volume Control*/
 static const char *mutecmd[] 		= { "amixer", "-q", "set", "Master", "toggle", NULL };
 static const char *volupcmd[] 		= { "amixer", "-q", "set", "Master", "5%+", "unmute", NULL };
 static const char *voldowncmd[] 	= { "amixer", "-q", "set", "Master", "5%-", "unmute", NULL };
-static const char *miccmd[] 		= { "amixer", "set", "Capture", "toggle", NULL };*/
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -80,6 +80,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofi_run } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lock } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filem } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          {.v = browser } },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -115,6 +116,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	/*Volume Control*/
+	{ 0,                            0x1008ff13, spawn,         {.v = volupcmd } },
+	{ 0,                            0x1008FF12, spawn,         {.v = mutecmd } },
+	{ 0,                            0x1008ff11, spawn,         {.v = voldowncmd } },
 };
 
 /* button definitions */
