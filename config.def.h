@@ -65,7 +65,9 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browser[]  = { "brave", NULL };
-static const char *rofi_run[] = { "rofi", "-show", "drun", NULL };
+static const char *rofi_run[] = { "/home/varads/.config/rofi/launchers/type-1/launcher.sh", NULL }; 
+static const char *rofi_pow[] = { "/home/varads/.config/rofi/powermenu/type-1/powermenu.sh", NULL };
+/*static const char *rofi_win[] = { "/home/varads/.config/rofi/launchers/type-1/window_launch.sh", NULL };Not usable in DWM*/
 static const char *lock[]     = { "slock", NULL };
 static const char *filem[]    = { "pcmanfm", NULL };
 
@@ -77,7 +79,8 @@ static const char *voldowncmd[] 	= { "amixer", "-q", "set", "Master", "5%-", "un
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofi_run } },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          {.v = rofi_run } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = rofi_pow } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lock } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filem } },
